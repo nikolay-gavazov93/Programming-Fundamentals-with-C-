@@ -1,37 +1,24 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Snowballs
+namespace Data_Types_and_Variables
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            BigInteger maxValue = BigInteger.MinusOne;
-            // these are jsut varianblse holding the properties of a maxed smnowball
-            // we need them just for the output
-            int maxSnow = 0;
-             int maxTime = 0;
-            int maxQuality = 0;
-            // n = tital snowballs
-            for (int i = 0; i < n; i++)
-            {
-                //for each snowball we read 3 lines
-                int snowBallSnow = int.Parse(Console.ReadLine());
-                int snowBallTime = int.Parse(Console.ReadLine());  
-                int snowBallQuality = int.Parse(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
+            int num3 = int.Parse(Console.ReadLine());
+            int num4 = int.Parse(Console.ReadLine());
+            // we can also use BigInteger to avoid overflow
+            // note that int + int = int even if our variable is type long
+            // in that case it will overflow if one of the two int is not converted to long
 
-                BigInteger snowBallValue = BigInteger.Pow((snowBallSnow / snowBallTime), snowBallQuality);
-                if (snowBallValue >maxValue)
-                {
-                    maxValue = snowBallValue;
-                    maxSnow = snowBallSnow;
-                    maxTime = snowBallTime;
-                    maxQuality = snowBallQuality;
-                }
-            }
-            Console.WriteLine($"{maxSnow} : {maxTime} = {maxValue}({maxQuality})");
+            long firstResult = (long)num1 + num2;
+            long secondResult = firstResult / num3;
+            long  firanResult = (long)secondResult * num4;
+            Console.WriteLine(firstResult);
         }
     }
 }
